@@ -22,12 +22,11 @@ import com.tariq.school.domain.entities.Student;
 import com.tariq.school.domain.entities.Teacher;
 
 @RestController
-@RequestMapping("/courses")
 public class courseController {
 	@Autowired
 	CourseRepository repository;
 
-	@GetMapping
+	@GetMapping("/courses")
 	public List<Course> findAll() {
 		List<Course> found = (List<Course>) repository.findAll();
 

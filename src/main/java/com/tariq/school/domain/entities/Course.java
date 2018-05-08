@@ -38,7 +38,6 @@ public class Course {
 	private Teacher supervisor;
 
 	@OneToMany(cascade = {CascadeType.ALL})
-	@JsonIgnore
 	private Set<Lecture> scheduledLecture;
 
 	@ManyToMany (cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
@@ -129,19 +128,16 @@ public class Course {
 		
 	}
 	
-	/*public void addLectureToCourse(LocalDateTime lectureDateAndTime, Lecture lectureToCourse) {
-		scheduledLecture.put(lectureDateAndTime, lectureToCourse);
-		
-	}*/
+	
 	
 	public void addLectureToCourse(Lecture lectureToCourse) {
 		scheduledLecture.add(lectureToCourse);
-		lectureToCourse.setCourse(this);
+		//lectureToCourse.setCourse(this);
 		}
 	
 	public void addTeacherToCourse(Teacher teacherToCourse) {
 		this.supervisor = teacherToCourse;
-		teacherToCourse.getSupervisedCourses().add(this);
+		//teacherToCourse.getSupervisedCourses().add(this);
 		
 	}
 	
