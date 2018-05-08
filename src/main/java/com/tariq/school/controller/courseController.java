@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tariq.school.database_access.repositories.CourseRepository;
@@ -21,11 +22,12 @@ import com.tariq.school.domain.entities.Student;
 import com.tariq.school.domain.entities.Teacher;
 
 @RestController
+@RequestMapping("/courses")
 public class courseController {
 	@Autowired
 	CourseRepository repository;
 
-	@GetMapping("/courses")
+	@GetMapping
 	public List<Course> findAll() {
 		List<Course> found = (List<Course>) repository.findAll();
 

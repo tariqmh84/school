@@ -38,7 +38,7 @@ public class Course {
 	private Teacher supervisor;
 
 	@OneToMany(cascade = {CascadeType.ALL})
-	//@JsonIgnore
+	@JsonIgnore
 	private Set<Lecture> scheduledLecture;
 
 	@ManyToMany (cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
